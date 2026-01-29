@@ -33,9 +33,15 @@ const updateTutorProfileById = async (
   });
   return updatedTutorProfile;
 };
+const deleteTutorProfileById = async (tutorProfileId: string) => {
+  await prisma.tutorProfile.delete({
+    where: { id: tutorProfileId },
+  });
+};
 export const tutorProfileService = {
   createTutorProfile,
   getAllTutorProfiles,
   getTutorProfileByUserId,
   updateTutorProfileById,
+  deleteTutorProfileById,
 };

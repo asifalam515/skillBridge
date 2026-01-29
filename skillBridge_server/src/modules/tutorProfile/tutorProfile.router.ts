@@ -18,3 +18,8 @@ tutorProfileRouter.put(
   auth(UserRole.TUTOR),
   tutorProfileController.updateTutorProfileById,
 );
+tutorProfileRouter.delete(
+  "/:id",
+  auth(UserRole.TUTOR, UserRole.ADMIN),
+  tutorProfileController.deleteTutorProfileById,
+);

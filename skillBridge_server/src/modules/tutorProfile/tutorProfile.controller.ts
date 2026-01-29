@@ -61,9 +61,20 @@ const updateTutorProfileById = async (req: Request, res: Response) => {
     res.status(500).json({ error: "Internal server error" });
   }
 };
+const deleteTutorProfileById = async (req: Request, res: Response) => {
+  try {
+    const tutorProfileId = req.params.id as string;
+    await tutorProfileService.deleteTutorProfileById(tutorProfileId);
+    res.status(204).send();
+  } catch (error) {
+    console.error("Error deleting tutor profile:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
 export const tutorProfileController = {
   createTutorProfile,
   getAllTutorProfiles,
   getTutorProfileByUserId,
   updateTutorProfileById,
+  deleteTutorProfileById,
 };
