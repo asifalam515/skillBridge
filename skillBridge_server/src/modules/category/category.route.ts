@@ -1,11 +1,10 @@
 import { Router } from "express";
-import { auth } from "../../middleware/auth";
-import { authorize } from "../../middleware/authorize";
+import { auth, UserRole } from "../../middleware/auth";
 import { categoryController } from "./category.controller";
 export const categoryRouter = Router();
 categoryRouter.post(
   "/",
-  auth,
-  authorize("ADMIN"),
+  auth(UserRole.ADMIN),
+
   categoryController.createCategoryByAdmin,
 );

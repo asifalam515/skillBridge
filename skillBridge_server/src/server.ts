@@ -4,6 +4,7 @@ import express, { Request, Response } from "express";
 import { auth } from "../lib/auth";
 import { categoryRouter } from "./modules/category/category.route";
 import { categoriesRoute } from "./modules/tutorCategories/categories.route";
+import { tutorProfileRouter } from "./modules/tutorProfile/tutorProfile.router";
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -18,6 +19,8 @@ app.get("/", (req: Request, res: Response) => {
 app.use("/api/v1/tutor-categories", categoriesRoute);
 // category route
 app.use("/api/v1/categories", categoryRouter);
+// tutor profile route
+app.use("/api/v1/tutor-profiles", tutorProfileRouter);
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });

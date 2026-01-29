@@ -1,8 +1,7 @@
 import { prisma } from "../../../lib/prisma";
 
-const createCategoryByAdmin = async (categoryData: any) => {
+const createCategoryByAdmin = async (categoryData: any, userId: string) => {
   try {
-    // Admin specific logic can be added here
     const createdCategory = await prisma.category.create({
       data: categoryData,
     });

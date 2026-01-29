@@ -3,7 +3,16 @@ import { categoryService } from "./category.service";
 
 const createCategoryByAdmin = async (req: Request, res: Response) => {
   try {
-    const category = await categoryService.createCategoryByAdmin(req.body);
+    if (!req.user) {
+      return res.status(401).json({
+        success: false,
+        message: "Unauthorized",
+      });
+    }
+    const category = await categoryService.createCategoryByAdmin(
+      req.body,
+      req.user?.id as string,
+    );
     res.status(201).json({
       success: true,
       data: category,
