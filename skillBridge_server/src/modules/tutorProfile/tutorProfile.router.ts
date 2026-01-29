@@ -8,3 +8,13 @@ tutorProfileRouter.post(
   auth(UserRole.TUTOR),
   tutorProfileController.createTutorProfile,
 );
+tutorProfileRouter.get("/", tutorProfileController.getAllTutorProfiles);
+tutorProfileRouter.get(
+  "/:userId",
+  tutorProfileController.getTutorProfileByUserId,
+);
+tutorProfileRouter.put(
+  "/:id",
+  auth(UserRole.TUTOR),
+  tutorProfileController.updateTutorProfileById,
+);

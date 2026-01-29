@@ -13,6 +13,29 @@ const createTutorProfile = async (
   });
   return newTutorProfile;
 };
+const getAllTutorProfiles = async () => {
+  const tutorsProfile = await prisma.tutorProfile.findMany();
+  return tutorsProfile;
+};
+const getTutorProfileByUserId = async (userId: string) => {
+  const tutorProfile = await prisma.tutorProfile.findUnique({
+    where: { userId: userId },
+  });
+  return tutorProfile;
+};
+const updateTutorProfileById = async (
+  updatedData: Partial<TutorProfile>,
+  tutorProfileId: string,
+) => {
+  const updatedTutorProfile = await prisma.tutorProfile.update({
+    where: { id: tutorProfileId },
+    data: updatedData,
+  });
+  return updatedTutorProfile;
+};
 export const tutorProfileService = {
   createTutorProfile,
+  getAllTutorProfiles,
+  getTutorProfileByUserId,
+  updateTutorProfileById,
 };
