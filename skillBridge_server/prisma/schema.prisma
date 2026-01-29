@@ -102,6 +102,8 @@ model AvailabilitySlot {
   tutorId  String
   bookings Booking[]
   tutor    TutorProfile @relation(fields: [tutorId], references: [id])
+  @@unique([tutorId, startTime])
+  @@unique([tutorId, endTime])
 }
 
 model Booking {

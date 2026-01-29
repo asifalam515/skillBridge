@@ -6,6 +6,6 @@ export const slotRouter = Router();
 slotRouter.post("/", auth(UserRole.TUTOR), slotController.createTimeSlot);
 slotRouter.get(
   "/",
-  auth(UserRole.TUTOR),
+  auth(UserRole.TUTOR, UserRole.STUDENT, UserRole.ADMIN),
   slotController.getAvailabilitySlotsByTutorId,
 );

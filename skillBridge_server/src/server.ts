@@ -3,6 +3,7 @@ import cors from "cors";
 import express, { Request, Response } from "express";
 import { auth } from "../lib/auth";
 import { slotRouter } from "./modules/availabilitySlot/slot.router";
+import { bookingRouter } from "./modules/booking/booking.router";
 import { categoryRouter } from "./modules/category/category.route";
 import { categoriesRoute } from "./modules/tutorCategories/categories.route";
 import { tutorProfileRouter } from "./modules/tutorProfile/tutorProfile.router";
@@ -24,6 +25,8 @@ app.use("/api/v1/categories", categoryRouter);
 app.use("/api/v1/tutor-profiles", tutorProfileRouter);
 //availability slot route
 app.use("/api/v1/availability-slots", slotRouter);
+// booking related router
+app.use("/api/v1/bookings", bookingRouter);
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
