@@ -39,7 +39,6 @@ export const auth = (...roles: UserRole[]) => {
         role: session.user.role as UserRole,
         status: session.user.status as "ACTIVE" | "BANNED",
       };
-      console.log(session);
       if (roles.length && !roles.includes(req.user.role as UserRole)) {
         return res.status(403).json({
           success: false,

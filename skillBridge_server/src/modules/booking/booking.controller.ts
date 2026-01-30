@@ -17,7 +17,6 @@ const createBooking = async (req: Request, res: Response) => {
 const getStudentsBookings = async (req: Request, res: Response) => {
   try {
     const studentId = req.user?.id;
-    console.log(studentId);
     const { status } = req.query;
 
     if (!studentId) return res.status(401).json({ error: "Unauthorized" });
@@ -56,7 +55,6 @@ const getTutorBookings = async (req: Request, res: Response) => {
 };
 const updateBookingStatus = async (req: Request, res: Response) => {
   try {
-    console.log(req.user?.id);
     const bookingId = req.params.bookingId as string;
     const { status } = req.body;
     const userId = req.user?.id;

@@ -5,6 +5,7 @@ import { auth } from "../lib/auth";
 import { slotRouter } from "./modules/availabilitySlot/slot.router";
 import { bookingRouter } from "./modules/booking/booking.router";
 import { categoryRouter } from "./modules/category/category.route";
+import { reviewRouter } from "./modules/review/review.router";
 import { categoriesRoute } from "./modules/tutorCategories/categories.route";
 import { tutorProfileRouter } from "./modules/tutorProfile/tutorProfile.router";
 const app = express();
@@ -27,6 +28,8 @@ app.use("/api/v1/tutor-profiles", tutorProfileRouter);
 app.use("/api/v1/availability-slots", slotRouter);
 // booking related router
 app.use("/api/v1/bookings", bookingRouter);
+// review related router
+app.use("/api/v1/reviews", reviewRouter);
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
