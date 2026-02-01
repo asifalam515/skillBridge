@@ -9,7 +9,7 @@ const createReview = async (req: Request, res: Response) => {
     if (!studentId) {
       return res.status(401).json({ error: "Unauthorized" });
     }
-    console.log(bookingId, studentId);
+
     if (!bookingId || !rating) {
       return res
         .status(400)

@@ -194,6 +194,23 @@ const cancelBooking = async (bookingId: string, studentId: string) => {
     });
   });
 };
+const bookingCompletion = async (bookingId: string, studentId: string) => {
+  return await prisma.$transaction(async (tx) => {
+    const booking = await tx.booking.findUnique({
+      where: { id: bookingId },
+    });
+
+    if (!booking) throw new Error("Booking not found");
+    if (booking.studentId !== studentId) throw new Error("Not authorized");
+    if (booking.status !== "CONFIRMED")
+      throw new Error("Only confirmed bookings can be completed");
+
+    return await tx.booking.update({
+      where: { id: bookingId },
+      data: { status: "COMPLETED" },
+    });
+  });
+};
 
 export const bookingRelatedService = {
   createBooking,
@@ -201,4 +218,5 @@ export const bookingRelatedService = {
   getTutorBookings,
   updateBookingStatus,
   cancelBooking,
+  bookingCompletion,
 };

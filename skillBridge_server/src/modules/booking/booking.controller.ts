@@ -88,11 +88,27 @@ const cancelBooking = async (req: Request, res: Response) => {
     res.status(400).json({ error: error.message });
   }
 };
+const bookingCompletion = async (req: Request, res: Response) => {
+  try {
+    const bookingId = req.params.bookingId as string;
+    const studentId = req.user?.id;
 
+    if (!studentId) return res.status(401).json({ error: "Unauthorized" });
+
+    const booking = await bookingRelatedService.bookingCompletion(
+      bookingId,
+      studentId,
+    );
+    res.json(booking);
+  } catch (error: any) {
+    res.status(400).json({ error: error.message });
+  }
+};
 export const bookingController = {
   createBooking,
   getStudentsBookings,
   getTutorBookings,
   cancelBooking,
   updateBookingStatus,
+  bookingCompletion,
 };

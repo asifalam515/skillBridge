@@ -15,6 +15,12 @@ bookingRouter.put(
   auth(UserRole.STUDENT),
   bookingController.cancelBooking,
 );
+// booking completion by STUDENT
+bookingRouter.put(
+  "/complete/:bookingId",
+  auth(UserRole.STUDENT),
+  bookingController.bookingCompletion,
+);
 // tutor routes
 // get tutor bookings
 bookingRouter.get(

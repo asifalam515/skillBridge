@@ -11,7 +11,10 @@ import { tutorProfileRouter } from "./modules/tutorProfile/tutorProfile.router";
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors());
+const corsOptions = {
+  origin: ["http://localhost:3000", "https://www.trusteddomain.com"],
+};
+app.use(cors(corsOptions));
 app.all("/api/auth/*splat", toNodeHandler(auth));
 app.use(express.json());
 
