@@ -2,6 +2,7 @@ import { toNodeHandler } from "better-auth/node";
 import cors from "cors";
 import express, { Request, Response } from "express";
 import { auth } from "../lib/auth";
+import { adminRouter } from "./modules/admin/admin.router";
 import { slotRouter } from "./modules/availabilitySlot/slot.router";
 import { bookingRouter } from "./modules/booking/booking.router";
 import { categoryRouter } from "./modules/category/category.route";
@@ -33,6 +34,8 @@ app.use("/api/v1/availability-slots", slotRouter);
 app.use("/api/v1/bookings", bookingRouter);
 // review related router
 app.use("/api/v1/reviews", reviewRouter);
+// admin related router
+app.use("/api/v1/admin", adminRouter);
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
