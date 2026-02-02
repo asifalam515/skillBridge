@@ -25,7 +25,54 @@ const createTutorProfile = async (req: Request, res: Response) => {
 };
 const getAllTutorProfiles = async (req: Request, res: Response) => {
   try {
-    const tutorsProfile = await tutorProfileService.getAllTutorProfiles();
+    // Parse query parameters
+    const search = req.query.search as string | undefined;
+    const category = req.query.category as string | undefined;
+    const minRating = req.query.minRating
+      ? parseFloat(req.query.minRating as string)
+      : undefined;
+    const maxPrice = req.query.maxPrice
+      ? parseFloat(req.query.maxPrice as string)
+      : undefined;
+    const minPrice = req.query.minPrice
+      ? parseFloat(req.query.minPrice as string)
+      : undefined;
+    const isVerified =
+      req.query.isVerified === "true"
+        ? true
+        : req.query.isVerified === "false"
+          ? false
+          : undefined;
+
+    // Pagination
+    const page = req.query.page ? parseInt(req.query.page as string) : 1;
+    const limit = req.query.limit ? parseInt(req.query.limit as string) : 10;
+
+    // Sorting
+    const sortBy = req.query.sortBy as
+      | "rating"
+      | "pricePerHr"
+      | "experience"
+      | "createdAt"
+      | undefined;
+    const sortOrder = req.query.sortOrder as "asc" | "desc" | undefined;
+
+    // Parse categories array
+    const categoryIds = category ? category.split(",") : [];
+
+    const tutorsProfile = await tutorProfileService.getAllTutorProfiles({
+      search,
+      categoryIds,
+      minRating,
+      maxPrice,
+      minPrice,
+      isVerified,
+      page,
+      limit,
+      sortBy,
+      sortOrder,
+    });
+
     res.status(200).json(tutorsProfile);
   } catch (error) {
     console.error("Error fetching tutor profiles:", error);

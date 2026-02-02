@@ -64,7 +64,7 @@ model TutorProfile {
   rating     Float   @default(0)
   experience Int
   isVerified Boolean @default(false)
-
+  isFeatured Boolean @default(false)
   userId String @unique
   user   User   @relation(fields: [userId], references: [id])
 
