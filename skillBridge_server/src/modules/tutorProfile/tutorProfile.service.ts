@@ -1,27 +1,15 @@
 import { TutorProfile } from "../../../generated/prisma/browser";
 import { prisma } from "../../../lib/prisma";
 
-// const createTutorProfile = async (
-//   tutorProfileData: TutorProfile,
-//   userId: string,
-// ) => {
-//   const newTutorProfile = await prisma.tutorProfile.create({
-//     data: {
-//       ...tutorProfileData,
-//       userId: userId,
-//     },
-//   });
-//   // if(tutorProfileData.)
-//   return newTutorProfile;
-// };
-
-const createTutorProfile = async (data: {
-  userId: string;
-  bio: string;
-  pricePerHr: number;
-  experience: number;
-  categoryIds?: string[];
-}) => {
+const createTutorProfile = async (
+  data: {
+    bio: string;
+    pricePerHr: number;
+    experience: number;
+    categoryIds?: string[];
+  },
+  userId: string,
+) => {
   return await prisma.$transaction(async (tx) => {
     // Create tutor profile
     const tutorProfile = await tx.tutorProfile.create({
@@ -29,7 +17,7 @@ const createTutorProfile = async (data: {
         bio: data.bio,
         pricePerHr: data.pricePerHr,
         experience: data.experience,
-        userId: data.userId,
+        userId: userId,
       },
     });
 

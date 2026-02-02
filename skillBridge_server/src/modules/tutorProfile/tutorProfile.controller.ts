@@ -3,7 +3,8 @@ import { tutorProfileService } from "./tutorProfile.service";
 const createTutorProfile = async (req: Request, res: Response) => {
   try {
     const tutorProfileData = req.body;
-    const userId = req.user?.id as string; // Assuming user ID is available in req.user
+    const userId = req.user?.id as string;
+
     if (req.user?.role != "TUTOR") {
       return res
         .status(403)
