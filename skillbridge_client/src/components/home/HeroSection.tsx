@@ -258,29 +258,6 @@ const HeroSection = () => {
             {/* Main Illustration Card */}
             <Card className="relative overflow-hidden border-primary/20 shadow-2xl">
               <CardContent className="p-0">
-                {/* Mockup of Video Session */}
-                {/* <div className="bg-gradient-to-br from-primary to-primary/70 p-6">
-                  <div className="flex items-center justify-between text-white">
-                    <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center">
-                        <Play className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold">Live Session Demo</h3>
-                        <p className="text-sm text-white/80">
-                          See how it works
-                        </p>
-                      </div>
-                    </div>
-                    <Badge
-                      variant="secondary"
-                      className="bg-white/20 hover:bg-white/30"
-                    >
-                      Interactive
-                    </Badge>
-                  </div>
-                </div> */}
-                {/*  this design need to change*/}
                 <div
                   className="
   relative overflow-hidden rounded-xl border
@@ -373,8 +350,6 @@ const HeroSection = () => {
                     </div>
                   </div>
                 </div>
-
-                {/* here is the end */}
 
                 {/* Tutor Card */}
                 <div className="p-6">
