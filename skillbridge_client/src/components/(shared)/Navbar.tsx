@@ -48,18 +48,18 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   // // Mock user data - replace with actual authentication logic
-  // useEffect(() => {
-  //   // Simulate user authentication
-  //   const mockUser: UserData = {
-  //     id: "1",
-  //     name: "John Doe",
-  //     email: "john@example.com",
-  //     role: "student",
-  //     avatar: "/avatars/john.jpg",
-  //     notifications: 3,
-  //   };
-  //   setUser(mockUser);
-  // }, []);
+  useEffect(() => {
+    // Simulate user authentication
+    const mockUser: UserData = {
+      id: "1",
+      name: "John Doe",
+      email: "john@example.com",
+      role: "student",
+      avatar: "/avatars/john.jpg",
+      notifications: 3,
+    };
+    setUser(mockUser);
+  }, []);
 
   // Handle scroll effect
   useEffect(() => {

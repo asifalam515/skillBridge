@@ -98,21 +98,23 @@ const HeroSection = () => {
       subject: "Mathematics",
       rating: 4.9,
       students: 250,
-      avatar: "/tutors/sarah.jpg",
+      avatar:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrKNa_1guK9qVnTWBnX7IBvjXJeXGuD8vDNw&s",
     },
     {
       name: "Prof. James Wilson",
       subject: "Physics",
       rating: 4.8,
       students: 180,
-      avatar: "/tutors/james.jpg",
+      avatar:
+        "https://i.ibb.co.com/PpR00GD/Whats-App-Image-2026-02-08-at-2-01-16-PM.jpg",
     },
     {
       name: "Ms. Elena Rodriguez",
       subject: "Spanish",
       rating: 5.0,
       students: 120,
-      avatar: "/tutors/elena.jpg",
+      avatar: "https://i.ibb.co.com/hRfgcd8/profile.png",
     },
   ];
 
@@ -356,7 +358,10 @@ const HeroSection = () => {
                   <div className="flex items-start justify-between mb-6">
                     <div className="flex items-center gap-4">
                       <Avatar className="h-16 w-16 border-2 border-primary">
-                        <AvatarImage src="/tutors/demo.jpg" alt="Tutor" />
+                        <AvatarImage
+                          src="https://i.ibb.co.com/wW0P4Kk/profile.jpg"
+                          alt="Tutor"
+                        />
                         <AvatarFallback className="bg-primary/10">
                           <GraduationCap className="h-8 w-8 text-primary" />
                         </AvatarFallback>

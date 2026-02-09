@@ -1,7 +1,7 @@
 import Footer from "@/components/(shared)/Footer";
 import HeroSection from "@/components/home/HeroSection";
 
-const HomePage = () => {
+const HomePage = async () => {
   return (
     <div>
       <HeroSection></HeroSection>

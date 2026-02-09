@@ -95,11 +95,11 @@ const RegisterForm = () => {
       console.log("Registration data:", data);
 
       // Redirect based on role
-      if (data.role === "student") {
-        router.push("/dashboard");
-      } else {
-        router.push("/tutor/setup");
-      }
+      //   if (data.role === "student") {
+      //     router.push("/dashboard");
+      //   } else {
+      //     router.push("/tutor/setup");
+      //   }
     } catch (error) {
       console.error("Registration error:", error);
     } finally {
